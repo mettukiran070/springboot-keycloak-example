@@ -23,22 +23,19 @@ public class ProductService {
   public ProductDto save(ProductDto productDto) {
     Product product = productMapper.mapDtoToModel(productDto);
     Product savedProduct = this.productRepository.save(product);
-    ProductDto response = productMapper.mapModelToDto(savedProduct);
-    return response;
+    return productMapper.mapModelToDto(savedProduct);
   }
 
   public List<ProductDto> findAll() {
     List<Product> products = this.productRepository.findAll();
-    List<ProductDto> productDtos = products.stream().map(productMapper::mapModelToDto).collect(Collectors.toList());
-    return productDtos;
+    return products.stream().map(productMapper::mapModelToDto).collect(Collectors.toList());
   }
 
   public ProductDto findById(Long id) {
     Optional<Product> optionalProduct = this.productRepository.findById(id);
-    ProductDto productDto = optionalProduct
+    return optionalProduct
         .map(productMapper::mapModelToDto)
         .orElseThrow(() -> new ProductNotFoundException("Unable to find the product "+ id));
-    return productDto;
   }
 
 }
