@@ -1,5 +1,16 @@
 version: "4.2"
 services:
+  keycloak:
+    container_name: keycloak
+    image: quay.io/keycloak/keycloak:25.0.4
+    restart: always
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8080:8080"
+    command: start-dev
+
   postgres:
     container_name: postgres
     image: postgres:16.1
