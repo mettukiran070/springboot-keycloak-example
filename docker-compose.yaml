@@ -13,9 +13,10 @@ services:
 
   postgres:
     container_name: postgres
-    image: postgres:16.1
+    image: postgres:16.4
     restart: always
     environment:
+      POSTGRES_DB: master
       POSTGRES_USER: postgresadmin
       POSTGRES_PASSWORD: P0stgres@dm1n
     ports:

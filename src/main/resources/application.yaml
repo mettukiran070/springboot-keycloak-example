@@ -5,3 +5,31 @@ server:
 spring:
   application:
     name: springboot-keycloak-example
+  datasource:
+    url: jdbc:postgresql://localhost:5432/master
+    username: postgresadmin
+    password: P0stgres@dm1n
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/myrealm
+          jwk-set-uri: http://localhost:8080/realms/myrealm/protocol/openid-connect/certs
+springdoc:
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true
+jwt:
+  auth:
+    converter:
+      resource-id: springboot-keycloak
+      principal-attribute: principal_username
