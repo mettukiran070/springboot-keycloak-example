@@ -23,6 +23,10 @@ spring:
         jwt:
           issuer-uri: http://localhost:8080/realms/myrealm
           jwk-set-uri: http://localhost:8080/realms/myrealm/protocol/openid-connect/certs
+#        opaquetoken:
+#          client-id: <specify client-id>
+#          client-secret: <specify client-secret>
+#          introspection-uri: <uri>
 springdoc:
   swagger-ui:
     enabled: true

@@ -15,6 +15,12 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.stereotype.Component;
 
+/**
+ * the jwt token has configuration object, which contains all the predefined configurations
+ * within this default configuration, there is an object/ class which converts, which converts the
+ * incoming jwt/ acces token to Spring boot specific format. that cnverter is JwtAutheticationConverter
+ */
+
 @Component
 public class JwtConverter implements Converter<Jwt, AbstractAuthenticationToken> {
 
